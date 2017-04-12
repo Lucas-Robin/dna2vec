@@ -27,7 +27,6 @@ def random_str(N):
 
 def memory_usage():
     return psutil.Process().memory_info().rss / 1E6
-#    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1E6
 
 def estimate_bytes(filenames):
     return sum([os.stat(f).st_size for f in filenames])
