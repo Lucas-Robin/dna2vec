@@ -2,7 +2,7 @@ import random
 import string
 import logbook
 import arrow
-# import resource
+import psutil
 import numpy as np
 import os
 
@@ -26,8 +26,7 @@ def random_str(N):
     return ''.join(random.SystemRandom().choice(string.ascii_lowercase + string.ascii_uppercase + string.digits) for _ in range(N))
 
 def memory_usage():
-    print("this function is not usable")
-    return 666
+    return psutil.Process().memory_info().rss / 1E6
 #    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1E6
 
 def estimate_bytes(filenames):
